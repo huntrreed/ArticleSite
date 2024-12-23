@@ -14,6 +14,8 @@ const { title, description, image, articleDate } = Astro.props
 		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
 		<ProviderTheme />
 		<ProviderAnimations />
+		<link rel='icon' type='image/png' href='/classiclogo.png' sizes='512x512' />
+		<link rel='icon' type='image/svg+xml' href='/classiclogo.svg' />
 	</head>
 
 	<body class='bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white'>
@@ -26,10 +28,5 @@ const { title, description, image, articleDate } = Astro.props
 		</main>
 		<TwSizeIndicator />
 		<EditBlog />
-		<style>
-			body {
-				margin-left: calc(100vw - 100%); /* prevent layout shift */
-			}
-		</style>
 	</body>
 </html>
