@@ -10,7 +10,7 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-	site: 'theexpertarchives.netlify.app/', // Write here your website url
+	site: 'https://theexpertarchives.netlify.app/', // Write here your website url
 	author: 'Expert Archives', // Site author
 	title: 'The Expert Archives', // Site title.
 	description:
