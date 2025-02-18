@@ -4,6 +4,16 @@ import { defineConfig } from 'tinacms'
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
 
+// ✅ Define the custom image field type to include "uploadDir"
+interface CustomImageField {
+	type: 'image'
+	label: string
+	required: boolean
+	name: string
+	description: string
+	uploadDir?: () => string // 👈 Make this optional to avoid TypeScript errors
+}
+
 export default defineConfig({
 	branch,
 	clientId: null, // Get this from tina.io
@@ -32,8 +42,9 @@ export default defineConfig({
 						label: 'Cover Image',
 						required: true,
 						name: 'heroImage',
-						description: 'The image used for the cover of the post'
-					},
+						description: 'The image used for the cover of the post',
+						uploadDir: () => 'src/assets/images/hero' // ✅ Forces hero images to be stored in "src/assets/images/hero/"
+					} as CustomImageField, // ✅ Fixes TypeScript error by casting it
 
 					{
 						type: 'string',
